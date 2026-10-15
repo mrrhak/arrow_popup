@@ -2,7 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
   "language": "en",
-  "dictionaries": ["dart", "flutter", "softwareTerms", "companies", "misc"],
+  "dictionaries": [
+    "dart",
+    "flutter",
+    "softwareTerms",
+    "companies",
+    "misc"
+  ],
   "ignorePaths": [
     ".dart_tool/**",
     ".git/**",
@@ -30,11 +36,13 @@
     "Bezier",
     "buildlog",
     "buymeacoffee",
-    "Kimhak",
+    "cwebp",
+    "ffprobe",
     "Focusable",
     "godofredoc",
     "haha",
     "horiz",
+    "Kimhak",
     "lerp",
     "LTRB",
     "LTRBR",
@@ -45,8 +53,8 @@
     "pbxproj",
     "pngquant",
     "pubspec",
-    "Repobeats",
     "rects",
+    "Repobeats",
     "Roboto",
     "rrect",
     "STEB",
@@ -60,6 +68,7 @@
     "unmanaged",
     "videocam",
     "vsync",
+    "webp",
     "xcodeproj"
   ]
 }
