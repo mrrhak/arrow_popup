@@ -1,0 +1,7 @@
+include: ../analysis_options.yaml
+
+# Tests leave type arguments off on purpose, as app code does.
+analyzer:
+  language:
+    strict-inference: false
+    strict-raw-types: false

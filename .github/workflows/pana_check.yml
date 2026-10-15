@@ -1,0 +1,27 @@
+# Fails unless pana, the tool pub.dev uses to score packages, gives the
+# package the full score.
+name: "Pana Check"
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pana:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install pana
+        run: dart pub global activate pana
+
+      # A threshold of 0 fails the job if even one point is lost.
+      - name: Score the package
+        run: dart pub global run pana --no-warning --exit-code-threshold 0 .

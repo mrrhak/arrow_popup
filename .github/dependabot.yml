@@ -1,0 +1,24 @@
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "master"
+    schedule:
+      interval: "monthly"
+      time: "08:00"
+      timezone: "Asia/Phnom_Penh"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pub"
+    directories:
+      - "/"
+      - "/example"
+    target-branch: "master"
+    schedule:
+      interval: "monthly"
+      time: "08:00"
+      timezone: "Asia/Phnom_Penh"
+    labels:
+      - "dependencies"

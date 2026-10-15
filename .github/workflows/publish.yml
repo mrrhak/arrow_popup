@@ -1,0 +1,36 @@
+# Publishes to pub.dev when a version tag such as v1.0.0 is pushed, using
+# GitHub's identity token instead of stored secrets. Enable it once on the
+# package's pub.dev admin page, with the tag pattern v{{version}}.
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publishing:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Sets up the pub.dev token from GitHub's identity token.
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@v1
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Test
+        run: flutter test
+
+      - name: Publish
+        run: flutter pub publish --force

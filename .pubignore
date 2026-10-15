@@ -1,0 +1,22 @@
+.vscode
+.idea
+
+# This file replaces .gitignore for pub, so repeat what must stay out of the
+# published package.
+.dart_tool/
+/build/
+/coverage/
+doc/api/
+*.iml
+pubspec.lock
+cspell.json
+
+# The example's platform runners and screenshot tooling aren't needed to read
+# the package, and the screenshots themselves stay for pub.dev.
+/example/android/
+/example/ios/
+/example/linux/
+/example/macos/
+/example/windows/
+/example/web/
+/example/tool/
