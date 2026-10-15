@@ -72,7 +72,7 @@ jobs:
           cache: true
 
       - name: Install Dependencies
-        run: flutter pub get
+        run: flutter pub get --no-example
 
       - name: Test
         run: flutter test
