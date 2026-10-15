@@ -314,6 +314,11 @@ void main() {
   ) async {
     final controller = ArrowPopupController<String>();
     addTearDown(controller.dispose);
+    // Older Flutter versions follow the failed build with more errors from
+    // the half-built tree, so only the first one is checked.
+    final onError = FlutterError.onError;
+    final errors = <Object>[];
+    FlutterError.onError = (details) => errors.add(details.exception);
     await tester.pumpWidget(
       s.app(
         ArrowPopup<String?>(
@@ -324,10 +329,11 @@ void main() {
         ),
       ),
     );
-    final error = tester.takeException();
-    expect(error, isAssertionError);
+    FlutterError.onError = onError;
+    expect(errors, isNotEmpty);
+    expect(errors.first, isAssertionError);
     expect(
-      '$error',
+      '${errors.first}',
       allOf(
         contains('ArrowPopup<String?>'),
         contains('ArrowPopupController<String>'),
