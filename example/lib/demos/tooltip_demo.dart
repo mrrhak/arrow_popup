@@ -5,7 +5,7 @@
 // icon, each segment of the usage bar, and the warning chip.
 
 import 'package:arrow_popup/arrow_popup.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 typedef _Usage = ({String name, IconData icon, double gb, Color color});
 

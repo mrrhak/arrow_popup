@@ -6,8 +6,8 @@
 // taps itself, so `ArrowPopup.builder` gives it `show` to open the popup.
 
 import 'package:arrow_popup/arrow_popup.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A profile link with a copy button that confirms with a brief popup.
 class AutoCloseDemo extends StatefulWidget {

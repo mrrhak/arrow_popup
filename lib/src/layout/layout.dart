@@ -79,21 +79,15 @@ class ArrowPopupLayout extends SingleChildRenderObjectWidget {
 class RenderArrowPopupLayout extends RenderShiftedBox {
   /// Creates the render object.
   RenderArrowPopupLayout({
-    required ArrowPopupAnchor anchor,
-    required EdgeInsets safeArea,
+    required this._anchor,
+    required this._safeArea,
     required ArrowPopupStyle style,
-    required Color color,
-    required ArrowPopupPlacement placement,
-    required Animation<double> scale,
-    required TextDirection textDirection,
+    required this._color,
+    required this._placement,
+    required this._scale,
+    required this._textDirection,
     RenderBox? child,
-  }) : _anchor = anchor,
-       _safeArea = safeArea,
-       _style = style,
-       _color = color,
-       _placement = placement,
-       _scale = scale,
-       _textDirection = textDirection,
+  }) : _style = style,
        assert(_debugCheckStyle(style)),
        super(child);
 
