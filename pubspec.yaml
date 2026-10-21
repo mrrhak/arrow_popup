@@ -1,15 +1,15 @@
 name: arrow_popup
 description: A popup bubble with an arrow that points at any widget. Use it for tooltips, popovers, menus and dropdowns, with automatic placement and a controller.
-version: 1.0.0-beta.1
+version: 1.0.0
 homepage: https://mrrhak.com
 repository: https://github.com/mrrhak/arrow_popup
 issue_tracker: https://github.com/mrrhak/arrow_popup/issues
 topics:
   - popup
   - tooltip
-  - popover
   - overlay
   - menu
+  - dropdown
 
 # Rendered by example/tool/screenshots_test.dart.
 # The first one is the square thumbnail in pub.dev search results.

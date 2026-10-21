@@ -97,7 +97,7 @@ class PostScreen extends StatelessWidget {
                 placement: ArrowPopupPlacement.above,
                 barrierColor: null,
                 style: ArrowPopupStyle.of(context).copyWith(
-                  color: () => scheme.surfaceContainerLowest,
+                  color: scheme.surfaceContainerLowest,
                   borderRadius: 30,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 8,

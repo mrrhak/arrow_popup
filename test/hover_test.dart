@@ -309,6 +309,53 @@ void main() {
       expect(find.text('item'), findsNothing);
     });
 
+    group('closeDelay', () {
+      Widget popup(Duration delay) => s.app(
+        ArrowPopup(
+          trigger: ArrowPopupTrigger.hover,
+          closeDelay: delay,
+          content: const SizedBox(key: s.contentKey, width: 100, height: 50),
+          child: const s.Anchor(),
+        ),
+      );
+
+      testWidgets('closes once the mouse has been away that long', (
+        tester,
+      ) async {
+        const delay = Duration(seconds: 1);
+        await tester.pumpWidget(popup(delay));
+        final mouse = await mouseAt(
+          tester,
+          tester.getCenter(find.byKey(s.anchorKey)),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byKey(s.contentKey), findsOneWidget);
+
+        await mouse.moveTo(away);
+        await tester.pump(delay - const Duration(milliseconds: 1));
+        expect(find.byKey(s.contentKey), findsOneWidget);
+
+        await tester.pump(const Duration(milliseconds: 1));
+        await tester.pumpAndSettle();
+        expect(find.byKey(s.contentKey), findsNothing);
+      });
+
+      testWidgets('returning sooner keeps it open', (tester) async {
+        const delay = Duration(seconds: 1);
+        await tester.pumpWidget(popup(delay));
+        final anchor = tester.getCenter(find.byKey(s.anchorKey));
+        final mouse = await mouseAt(tester, anchor);
+        await tester.pumpAndSettle();
+
+        await mouse.moveTo(away);
+        await tester.pump(delay ~/ 2);
+        await mouse.moveTo(anchor);
+        await tester.pump(delay * 2);
+        await tester.pumpAndSettle();
+        expect(find.byKey(s.contentKey), findsOneWidget);
+      });
+    });
+
     group('waitDuration', () {
       const wait = Duration(seconds: 1);
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0
+
+First stable release. The API is now covered by semantic versioning.
+
+- **Breaking:** `ArrowPopupStyle.copyWith` takes `color` as a plain `Color?`,
+  not a function, and null keeps the current color like the other fields. To
+  go back to the theme's default color, create a new `ArrowPopupStyle`.
+- `closeDelay` sets how long a hover popup stays after the mouse leaves the
+  anchor and the bubble. The default is the same 100 milliseconds as before.
+
 ## 1.0.0-beta.1
 
 First beta. The API is meant to be final; it is published as a beta to gather
@@ -38,8 +48,6 @@ feedback before 1.0.0.
   size, gap, screen margin, max width, max height and clipping.
 - It can be set for the whole app as a `ThemeData` extension, or with
   `ArrowPopupTheme` in any app.
-- `ArrowPopupStyle.copyWith` takes `color` as a function, so it can reset the
-  color to the theme's default: `copyWith(color: () => null)`.
 
 ### Accessibility and platforms
 

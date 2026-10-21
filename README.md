@@ -49,6 +49,10 @@
     <img src="https://github.com/mrrhak/arrow_popup/actions/workflows/format-analyze-test.yml/badge.svg"
       alt="Build Status" />
   </a>
+  <a href="https://codecov.io/gh/mrrhak/arrow_popup">
+    <img src="https://codecov.io/gh/mrrhak/arrow_popup/graph/badge.svg?token=V3E9J2828V"
+      alt="Coverage" />
+  </a>
   <a href="https://github.com/mrrhak/arrow_popup">
     <img src="https://img.shields.io/github/languages/code-size/mrrhak/arrow_popup?logo=github&color=blue&label=Size"
       alt="Code size" />
@@ -129,13 +133,7 @@
 flutter pub add arrow_popup
 ```
 
-This is a beta. If the command above doesn't add it, ask for the beta in
-`pubspec.yaml`:
-
-```yaml
-dependencies:
-  arrow_popup: ^1.0.0-beta.1
-```
+It requires Flutter 3.32 or newer.
 
 ```dart
 import 'package:arrow_popup/arrow_popup.dart';
@@ -220,8 +218,6 @@ platform brightness.
 
 A popup's own `style` replaces the theme's. To change only part of it, start
 from the theme's: `ArrowPopupStyle.of(context).copyWith(maxWidth: 240)`.
-`copyWith` takes `color` as a function, so `copyWith(color: () => null)`
-resets it to the default.
 
 ### Menu that returns a value
 
@@ -387,6 +383,8 @@ ArrowPopup(
 - Set `waitDuration` so a hover popup opens only once the mouse has rested
   on the anchor that long, as toolbar tooltips do. Moving the mouse past
   sooner opens nothing. The default, `Duration.zero`, opens it right away.
+- Set `closeDelay` to change how long a hover popup stays after the mouse
+  leaves the anchor and the bubble. The default is 100 milliseconds.
 - Popups are routes on the navigator, so navigator observers such as
   analytics see them. Pass `routeSettings` (such as
   `RouteSettings(name: 'menu')`) to tell them apart from screens. Popups

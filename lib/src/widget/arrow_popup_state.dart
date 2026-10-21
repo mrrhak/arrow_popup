@@ -16,7 +16,6 @@ class _ArrowPopupState<T> extends State<ArrowPopup<T>>
   // Hover trigger: where the mouse is, the pending open while it waits for
   // waitDuration, and the pending close once it has left both the anchor
   // and the bubble.
-  static const _hoverCloseDelay = Duration(milliseconds: 100);
   bool _overAnchor = false;
   bool _overBubble = false;
   Timer? _hoverOpen;
@@ -359,7 +358,7 @@ class _ArrowPopupState<T> extends State<ArrowPopup<T>>
   void _closeAfterHover() {
     if (_hoverClosed == null) return;
     _hoverClose?.cancel();
-    _hoverClose = Timer(_hoverCloseDelay, () {
+    _hoverClose = Timer(widget.closeDelay, () {
       if (mounted && !_overAnchor && !_overBubble) _closeHover();
     });
   }

@@ -343,9 +343,7 @@ void main() {
       await tester.tap(find.byKey(s.anchorKey));
       await tester.pumpAndSettle();
 
-      await tester.pumpWidget(
-        themedApp(teal.copyWith(color: () => Colors.red)),
-      );
+      await tester.pumpWidget(themedApp(teal.copyWith(color: Colors.red)));
       // The theme animates, which blends the two styles.
       await tester.pumpAndSettle();
       expect(s.layoutOf(tester), paints..path(color: Colors.red));
@@ -485,12 +483,12 @@ void main() {
     });
 
     test('sets the color', () {
-      final blue = red.copyWith(color: () => const Color(0xFF0000FF));
+      final blue = red.copyWith(color: const Color(0xFF0000FF));
       expect(blue.color, const Color(0xFF0000FF));
     });
 
-    test('resets the color to the theme default with null', () {
-      expect(red.copyWith(color: () => null).color, isNull);
+    test('keeps the color with null', () {
+      expect(red.copyWith().color, red.color);
     });
   });
 

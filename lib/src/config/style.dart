@@ -109,11 +109,11 @@ class ArrowPopupStyle extends ThemeExtension<ArrowPopupStyle> {
 
   /// Returns a copy with the given fields replaced.
   ///
-  /// Passing null keeps the current value. [color] takes a function so it can
-  /// also be reset to the theme's default: `copyWith(color: () => null)`.
+  /// Passing null keeps the current value. To go back to the theme's default
+  /// color, create a new [ArrowPopupStyle] instead.
   @override
   ArrowPopupStyle copyWith({
-    ValueGetter<Color?>? color,
+    Color? color,
     BorderSide? border,
     double? borderRadius,
     EdgeInsetsGeometry? padding,
@@ -127,7 +127,7 @@ class ArrowPopupStyle extends ThemeExtension<ArrowPopupStyle> {
     Clip? clipBehavior,
   }) {
     return ArrowPopupStyle(
-      color: color != null ? color() : this.color,
+      color: color ?? this.color,
       border: border ?? this.border,
       borderRadius: borderRadius ?? this.borderRadius,
       padding: padding ?? this.padding,

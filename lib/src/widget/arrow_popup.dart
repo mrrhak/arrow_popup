@@ -72,6 +72,7 @@ class ArrowPopup<T> extends StatefulWidget {
     this.curve = defaultCurve,
     this.autoCloseDuration = Duration.zero,
     this.waitDuration = Duration.zero,
+    this.closeDelay = defaultHoverCloseDelay,
     this.onOpen,
     this.onClose,
   }) : builder = null;
@@ -113,7 +114,8 @@ class ArrowPopup<T> extends StatefulWidget {
        trigger = ArrowPopupTrigger.none,
        focusable = false,
        focusDecoration = null,
-       waitDuration = Duration.zero;
+       waitDuration = Duration.zero,
+       closeDelay = defaultHoverCloseDelay;
 
   /// The widget shown in the bubble.
   ///
@@ -234,6 +236,18 @@ class ArrowPopup<T> extends StatefulWidget {
   /// Only mouse hover waits. A tap, the keyboard and
   /// [ArrowPopupController.show] open the popup right away.
   final Duration waitDuration;
+
+  /// How long after the mouse has left both [child] and the bubble a popup
+  /// opened by [ArrowPopupTrigger.hover] closes. The default is 100
+  /// milliseconds, enough for the mouse to cross the gap between them.
+  ///
+  /// Coming back sooner keeps it open. Set it to [Duration.zero] to close as
+  /// soon as the mouse leaves, or longer to give a slow mouse more time to
+  /// reach a bubble with buttons in it.
+  ///
+  /// Only mouse hover closes after it. Escape, [ArrowPopup.close] and
+  /// [ArrowPopupController.hide] close right away.
+  final Duration closeDelay;
 
   /// Called just before the popup opens.
   ///

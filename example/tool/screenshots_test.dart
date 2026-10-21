@@ -84,7 +84,7 @@ void main() {
         PlaceCard(place),
         placement: place.placement,
         style: (base) => base.copyWith(
-          color: () => scheme.surfaceContainerLowest,
+          color: scheme.surfaceContainerLowest,
           borderRadius: 12,
           padding: const EdgeInsets.fromLTRB(12, 8, 14, 9),
         ),
@@ -116,7 +116,7 @@ void main() {
       const Text('3 comments'),
       placement: ArrowPopupPlacement.below,
       style: (base) => base.copyWith(
-        color: () => scheme.surface,
+        color: scheme.surface,
         border: BorderSide(color: scheme.outline),
         shadows: const [],
         borderRadius: 8,
@@ -163,7 +163,7 @@ void main() {
       const TourStep(),
       placement: ArrowPopupPlacement.above,
       style: (base) => base.copyWith(
-        color: () => scheme.primary,
+        color: scheme.primary,
         borderRadius: 16,
         padding: const EdgeInsets.all(16),
       ),

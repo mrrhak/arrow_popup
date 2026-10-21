@@ -57,7 +57,8 @@ enum ArrowPopupTrigger {
   /// shortly after it has left both the anchor and the bubble, so the mouse
   /// can move into the bubble. Escape closes it too, without moving the
   /// mouse. Set `ArrowPopup.waitDuration` to open it only once the mouse
-  /// has rested on the anchor that long.
+  /// has rested on the anchor that long, and `ArrowPopup.closeDelay` to
+  /// change how long it stays after the mouse leaves.
   ///
   /// A popup opened this way doesn't dim the screen, block taps outside it
   /// or take keyboard focus. Touch screens can't hover, so there it opens
@@ -70,6 +71,10 @@ enum ArrowPopupTrigger {
   /// route, so navigator observers don't see it, and `Navigator.pop` closes
   /// the screen below, not the popup. Close it from its content with
   /// `ArrowPopup.close`.
+  ///
+  /// Opened by touch, the keyboard or a controller, the same popup is a
+  /// route, so its content can't see inherited widgets between the navigator
+  /// and the anchor, such as a provider, which a mouse-opened one can.
   hover,
 
   /// Never opens from a gesture; use an `ArrowPopupController` instead.
