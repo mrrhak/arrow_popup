@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A titled block on the home page that holds one demo.
 class Section extends StatelessWidget {

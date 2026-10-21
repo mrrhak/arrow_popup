@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0
+
+- **Breaking:** moves from `package:flutter/material.dart` and
+  `package:flutter/cupertino.dart` to `package:material_ui` and
+  `package:cupertino_ui`, as described in the Flutter breaking change guide.
+  `ArrowPopupStyle` is now a `material_ui` `ThemeExtension`, so your app must
+  use `MaterialApp` and `ThemeData` from `material_ui` for the theme, style
+  extension and localizations to be found.
+- Apps that still import `package:flutter/material.dart` should stay on
+  `^1.0.0`. Move to `^2.0.0` together with the move to `material_ui`.
+- **Breaking:** requires Flutter 3.47 and Dart 3.13 or newer.
+
 ## 1.0.1
 
 - **Changed:** new `ArrowPopupStyle` defaults: `borderRadius` is 12 (was 10),

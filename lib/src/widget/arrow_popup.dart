@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../config/constants.dart';
 import '../config/enums.dart';
@@ -20,8 +20,10 @@ part 'arrow_popup_state.dart';
 /// Builds the widget an [ArrowPopup.builder] points at. Call [show] to open
 /// the popup, such as from a button's `onPressed`; it completes as
 /// [ArrowPopupController.show] does.
-typedef ArrowPopupAnchorBuilder<T> =
-    Widget Function(BuildContext context, Future<T?> Function() show);
+typedef ArrowPopupAnchorBuilder<T> = Widget Function(
+  BuildContext context,
+  Future<T?> Function() show,
+);
 
 /// Shows [content] in a bubble with an arrow pointing at [child] when
 /// [child] is tapped (or long-pressed or double-tapped, see [trigger]).
