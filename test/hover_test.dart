@@ -694,9 +694,9 @@ void main() {
     expect(
       decoration().border,
       Border.all(
-        color: Theme.of(
-          tester.element(find.byKey(s.anchorKey)),
-        ).colorScheme.primary,
+        color: Theme.of(tester.element(find.byKey(s.anchorKey)))
+            .colorScheme
+            .primary,
         width: 2,
       ),
     );

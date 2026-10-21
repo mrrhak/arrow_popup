@@ -284,9 +284,8 @@ void main() {
     );
     await tester.tap(find.byKey(s.anchorKey));
     await tester.pumpAndSettle();
-    final colors = Theme.of(
-      tester.element(find.byKey(s.anchorKey)),
-    ).colorScheme;
+    final colors = Theme.of(tester.element(find.byKey(s.anchorKey)))
+        .colorScheme;
     // Otherwise this test couldn't tell the two apart.
     expect(colors.surfaceContainer, isNot(colors.surface));
     expect(s.layoutOf(tester), paints..path(color: colors.surfaceContainer));

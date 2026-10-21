@@ -100,9 +100,8 @@ void main() {
       ),
     );
     await _open(tester);
-    final style = DefaultTextStyle.of(
-      tester.element(find.byKey(s.contentKey)),
-    ).style;
+    final style = DefaultTextStyle.of(tester.element(find.byKey(s.contentKey)))
+        .style;
     expect(
       style.fontFamily,
       const CupertinoThemeData().textTheme.textStyle.fontFamily,
