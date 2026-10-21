@@ -1,5 +1,5 @@
 import 'package:arrow_popup/arrow_popup.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({

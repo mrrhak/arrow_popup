@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:arrow_popup/arrow_popup.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
+
 import 'support.dart' as s;
 
 void main() {
@@ -693,9 +694,9 @@ void main() {
     expect(
       decoration().border,
       Border.all(
-        color: Theme.of(
-          tester.element(find.byKey(s.anchorKey)),
-        ).colorScheme.primary,
+        color: Theme.of(tester.element(find.byKey(s.anchorKey)))
+            .colorScheme
+            .primary,
         width: 2,
       ),
     );
