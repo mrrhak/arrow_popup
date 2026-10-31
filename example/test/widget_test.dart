@@ -1,9 +1,8 @@
+import 'package:example/main.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:example/main.dart';
 
 void main() {
   testWidgets('tooltip opens on tap and closes on barrier tap', (tester) async {

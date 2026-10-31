@@ -8,7 +8,7 @@
 // when its content changes.
 
 import 'package:arrow_popup/arrow_popup.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A mini design app. Each bar opens its popups on the side with room.
 class PlacementDemo extends StatefulWidget {

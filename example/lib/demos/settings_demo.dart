@@ -6,7 +6,7 @@
 // with an outline `border`, and every popup inside uses it.
 
 import 'package:arrow_popup/arrow_popup.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 typedef _Setting = ({String title, IconData icon, List<String> options});
 

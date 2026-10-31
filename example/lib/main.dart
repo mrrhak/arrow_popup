@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'demos/auto_close_demo.dart';
 import 'demos/controller_demo.dart';

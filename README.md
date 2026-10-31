@@ -133,7 +133,18 @@
 flutter pub add arrow_popup
 ```
 
-It requires Flutter 3.32 or newer.
+Pick the version that matches the Material library your app imports:
+
+| Your app imports | Use | Flutter |
+|---|---|---|
+| `package:flutter/material.dart` | `arrow_popup: ^1.0.0` | 3.32 or newer |
+| `package:material_ui/material_ui.dart` | `arrow_popup: ^2.0.0` | 3.47 or newer |
+
+Version 2 is built on [`material_ui`](https://pub.dev/packages/material_ui) and
+[`cupertino_ui`](https://pub.dev/packages/cupertino_ui). Their `ThemeData`,
+`ThemeExtension` and localization types are different from the ones in
+`package:flutter`, so mixing the two does not work. Stay on version 1 until your
+app moves to `material_ui`, then upgrade to version 2.
 
 ```dart
 import 'package:arrow_popup/arrow_popup.dart';

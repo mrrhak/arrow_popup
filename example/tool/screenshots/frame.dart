@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A caption on the left and a phone-sized screen on the right.
 class Poster extends StatelessWidget {
