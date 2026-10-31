@@ -111,7 +111,9 @@ void main() {
   });
 
   testWidgets('tapping the bubble itself does not close it', (tester) async {
-    await tester.pumpWidget(s.app(s.popup()));
+    await tester.pumpWidget(
+      s.app(s.popup(style: const ArrowPopupStyle(padding: EdgeInsets.all(8)))),
+    );
     await tester.tap(find.byKey(s.anchorKey));
     await tester.pumpAndSettle();
 

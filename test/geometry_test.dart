@@ -58,7 +58,7 @@ void main() {
   test('shifts inside the viewport and keeps the arrow off corners', () {
     final g = _layout(const Rect.fromLTWH(386, 100, 4, 40));
     expect(g.box.right, 390);
-    expect(g.arrowCenter, 390 - 10 - 8);
+    expect(g.arrowCenter, 390 - 12 - 8);
   });
 
   test(
@@ -136,7 +136,7 @@ void main() {
         placement: ArrowPopupPlacement.right,
       );
       expect(g.box.bottom, 790);
-      expect(g.arrowCenter, 790 - 10 - 8);
+      expect(g.arrowCenter, 790 - 12 - 8);
     });
 
     test('arrow wider than the bubble stays within it', () {
@@ -504,7 +504,7 @@ void main() {
   test('maxWidth limits the bubble, padding included', () {
     final c = arrowPopupNaturalConstraints(
       viewport: _viewport,
-      style: const ArrowPopupStyle(maxWidth: 200),
+      style: const ArrowPopupStyle(maxWidth: 200, padding: EdgeInsets.all(8)),
     );
     expect(c.maxWidth, 200 - 16);
   });

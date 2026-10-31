@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+- **Changed:** new `ArrowPopupStyle` defaults: `borderRadius` is 12 (was 10),
+  `padding` is `EdgeInsets.zero` (was `EdgeInsets.all(8)`) and `screenMargin`
+  is 16 (was 10). Pass the old values to keep the previous look.
+
 ## 1.0.0
 
 First stable release. The API is now covered by semantic versioning.
