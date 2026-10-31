@@ -335,7 +335,7 @@ void main() {
       await tester.tap(find.byKey(s.anchorKey));
       await tester.pumpAndSettle();
       expect(s.layoutOf(tester), paints..path(color: Colors.black));
-      expect(s.layoutOf(tester).geometry!.radius, 10);
+      expect(s.layoutOf(tester).geometry!.radius, 12);
     });
 
     testWidgets('changes an open popup when the theme changes', (tester) async {
@@ -465,6 +465,13 @@ void main() {
       expect(red.lerp(a, 0.25).color, red.color);
       expect(red.lerp(a, 0.75).color, isNull);
     });
+  });
+
+  test('the default style', () {
+    const style = ArrowPopupStyle();
+    expect(style.borderRadius, 12);
+    expect(style.padding, EdgeInsets.zero);
+    expect(style.screenMargin, 16);
   });
 
   test('copyWith and == include the border', () {

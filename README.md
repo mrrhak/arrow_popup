@@ -143,11 +143,15 @@ import 'package:arrow_popup/arrow_popup.dart';
 
 ### Basic popup
 
-Tap the child to open the popup:
+Tap the child to open the popup. The bubble has no padding of its own, so
+give the content some:
 
 ```dart
 ArrowPopup(
-  content: const Text('Saved to your library'),
+  content: const Padding(
+    padding: EdgeInsets.all(8),
+    child: Text('Saved to your library'),
+  ),
   child: const Icon(Icons.info_outline),
 )
 ```
@@ -162,7 +166,10 @@ ArrowPopup(
   trigger: ArrowPopupTrigger.hover,
   waitDuration: const Duration(milliseconds: 500),
   semanticLabel: 'Bold, Command B',
-  content: const Text('Bold  ⌘B'),
+  content: const Padding(
+    padding: EdgeInsets.all(8),
+    child: Text('Bold  ⌘B'),
+  ),
   child: const Icon(Icons.format_bold),
 )
 ```
@@ -280,7 +287,10 @@ the button:
 
 ```dart
 ArrowPopup.builder(
-  content: const Text('Saved to your library'),
+  content: const Padding(
+    padding: EdgeInsets.all(8),
+    child: Text('Saved to your library'),
+  ),
   builder: (context, show) => IconButton(
     icon: const Icon(Icons.info_outline),
     onPressed: show,
@@ -301,7 +311,10 @@ final controller = ArrowPopupController();
 ArrowPopup(
   controller: controller,
   trigger: ArrowPopupTrigger.none,
-  content: const Text('Try this new feature'),
+  content: const Padding(
+    padding: EdgeInsets.all(8),
+    child: Text('Try this new feature'),
+  ),
   child: const Icon(Icons.star),
 )
 
@@ -367,8 +380,9 @@ ArrowPopup(
   instead, without an arrow.
 - `ArrowPopupStyle.shadows` uses each shadow's color, offset and blur;
   `spreadRadius` is ignored.
-- With `padding: EdgeInsets.zero`, set `clipBehavior: Clip.antiAlias` in
-  `ArrowPopupStyle` so the content doesn't spill past the rounded corners.
+- The default `padding` is zero, so content that fills the bubble can spill
+  past the rounded corners. Set `clipBehavior: Clip.antiAlias` in
+  `ArrowPopupStyle` to clip it, or add `padding`.
 
 **Opening and closing**
 
